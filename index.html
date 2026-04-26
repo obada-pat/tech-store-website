@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech Store</title>
+  <link rel="icon" type="image/png" href="images/tech-hero.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <h1>Tech Store</h1>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#deals">Deals</a></li>
+          <li><a href="#database">Database</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#support">Support</a></li>
+          <li><a href="#order">Order</a></li>
+          <li><a href="#cart">Cart</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="secondary" aria-pressed="false" title="Toggle theme">Dark</button>
+    </div>
+  </header>
+
+  <section id="banner">
+    <div class="banner-inner">
+      <div class="banner-copy">
+        <p class="eyebrow">Smart devices, ready today</p>
+        <h2>Upgrade your setup with trusted tech.</h2>
+        <p>Shop laptops, phones, audio gear, gaming accessories, and smart home essentials with live stock tracking.</p>
+        <a class="hero-action" href="#products">Shop products</a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="products" class="container">
+      <h2 class="center"><span class="underline">Products</span></h2>
+      <div class="toolbar">
+        <label for="categoryFilter">Category</label>
+        <select id="categoryFilter">
+          <option value="all">All</option>
+          <option value="laptop">Laptops</option>
+          <option value="phone">Phones</option>
+          <option value="audio">Audio</option>
+          <option value="gaming">Gaming</option>
+          <option value="wearable">Wearables</option>
+          <option value="accessory">Accessories</option>
+          <option value="smart-home">Smart Home</option>
+        </select>
+      </div>
+      <div id="productGrid" class="product-grid" aria-live="polite"></div>
+    </section>
+
+    <section id="deals" class="container">
+      <h2 class="center"><span class="underline">Deals</span></h2>
+      <div class="deal-band">
+        <div>
+          <h3>Creator Bundle</h3>
+          <p>Pair a laptop, wireless mouse, and headphones for a cleaner study or work desk.</p>
+        </div>
+        <strong>Save up to 12%</strong>
+      </div>
+    </section>
+
+    <section id="database" class="container">
+      <h2 class="center"><span class="underline">Store Database</span></h2>
+      <div class="stats-grid">
+        <div class="stat"><span id="productCount">0</span><small>Products</small></div>
+        <div class="stat"><span id="orderCount">0</span><small>Orders</small></div>
+        <div class="stat"><span id="customerCount">0</span><small>Customers</small></div>
+        <div class="stat"><span id="reviewCount">0</span><small>Reviews</small></div>
+      </div>
+      <details class="snapshot" open>
+        <summary>Database JSON</summary>
+        <pre id="databaseJSON"></pre>
+      </details>
+    </section>
+
+    <section id="about" class="container">
+      <h2 class="center"><span class="underline">About Us</span></h2>
+      <p>Tech Store helps students, creators, and everyday users find reliable electronics at clear prices.</p>
+      <p>Our inventory is tracked in the browser database, so products update when orders are placed.</p>
+    </section>
+
+    <section id="reviews" class="container">
+      <h2 class="center"><span class="underline">Customer Reviews</span></h2>
+      <div id="reviewCards" class="review-grid"></div>
+      <div id="new-review-form" class="form-panel">
+        <h3>Add Your Review</h3>
+        <form id="reviewForm">
+          <label for="rname">Name</label>
+          <input type="text" id="rname" required />
+          <label for="rrating">Rating</label>
+          <select id="rrating" required>
+            <option value="5">5 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="2">2 Stars</option>
+            <option value="1">1 Star</option>
+          </select>
+          <label for="rcomment">Comment</label>
+          <textarea id="rcomment" rows="4" required></textarea>
+          <button type="submit">Submit Review</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="support" class="container">
+      <h2 class="center"><span class="underline">Support</span></h2>
+      <div class="info-grid">
+        <div>
+          <h3>Contact</h3>
+          <p>Phone: 123-456-7890</p>
+          <p>Email: support@techstore.com</p>
+          <p><a href="https://www.bing.com/maps" target="_blank" rel="noreferrer">Altinbas University Location</a></p>
+        </div>
+        <div>
+          <h3>Store Hours</h3>
+          <p>Monday to Friday: 10am-10pm</p>
+          <p>Saturday: 11am-8pm</p>
+          <p>Sunday: Closed</p>
+        </div>
+        <div>
+          <h3>FAQ</h3>
+          <p><strong>Warranty?</strong> Every product includes a one-year store warranty.</p>
+          <p><strong>Returns?</strong> Returns are accepted within 14 days with receipt.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="order" class="container">
+      <h2 class="center"><span class="underline">Place Your Order</span></h2>
+      <form id="orderForm" class="form-panel">
+        <label for="name">Name</label>
+        <input type="text" id="name" required />
+        <label for="email">Email</label>
+        <input type="email" id="email" required />
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" required />
+        <label for="item">Select Product</label>
+        <select id="item"></select>
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" min="1" value="1" required />
+        <button type="submit">Add to Cart</button>
+      </form>
+    </section>
+  </main>
+
+  <aside id="cart" class="cart">
+    <h2>Cart</h2>
+    <ul id="cartList"></ul>
+    <div class="totals">
+      <div><span>Subtotal:</span><span id="subtotal">TL 0.00</span></div>
+      <div><span>Tax (8%):</span><span id="tax">TL 0.00</span></div>
+      <div class="total"><span>Total:</span><span id="total">TL 0.00</span></div>
+    </div>
+    <div class="cart-actions">
+      <button id="removeSelected" class="secondary">Remove Selected</button>
+      <button id="checkout" class="primary">Checkout</button>
+    </div>
+    <details class="snapshot">
+      <summary>Current Order JSON</summary>
+      <pre id="orderJSON"></pre>
+    </details>
+  </aside>
+
+  <footer>
+    <p>&copy; 2026 Tech Store Inventory and Order System</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
