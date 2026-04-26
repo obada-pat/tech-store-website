@@ -21,3 +21,21 @@ It is built using HTML, CSS, and JavaScript, and it uses localStorage as a simpl
 - LocalStorage
 
 ## Project Structure
+
+
+tech-store-website/
+- index.html
+- style.css
+- script.js
+- images/
+- products/
+
+
+## How to Run
+
+1. Download or clone the repository  
+2. Open `index.html` in your browser  
+
+## Author
+
+Obada Khdir 
